@@ -1,0 +1,39 @@
+# Ignoriere Build-Ergebnisse
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]ogs/
+
+# Ignoriere NuGet-Pakete
+packages/
+
+# Ignoriere VS Code-Einstellungen
+.vscode/
+
+# Ignoriere Benutzereinstellungen von Visual Studio
+*.user
+*.suo
+*.userosscache
+
+# Ignoriere ReSharper-Dateien
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Ignoriere alle .NET Core und .NET Standard temporäre Dateien und Build-Dateien
+**/project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignoriere Visual Studio temporäre Dateien, Build-Ergebnisse und
+# Dateien, die durch andere Visual Studio-Add-Ins erstellt wurden
+**/[Tt]est[Rr]esult*/
+**/[Bb]uild[Ll]og.*
+
+# Ignoriere die macOS-Systemdateien
+.DS_Store
+
+# Ignoriere die Visual Studio 2017/2019 Verzeichnisstruktur
+.vs/
