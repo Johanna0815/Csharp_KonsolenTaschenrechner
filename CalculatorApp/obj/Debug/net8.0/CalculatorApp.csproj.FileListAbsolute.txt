@@ -1,0 +1,14 @@
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/bin/Debug/net8.0/CalculatorApp
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/bin/Debug/net8.0/CalculatorApp.deps.json
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/bin/Debug/net8.0/CalculatorApp.runtimeconfig.json
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/bin/Debug/net8.0/CalculatorApp.dll
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/bin/Debug/net8.0/CalculatorApp.pdb
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.AssemblyInfoInputs.cache
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.AssemblyInfo.cs
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.csproj.CoreCompileInputs.cache
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.dll
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/refint/CalculatorApp.dll
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.pdb
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.genruntimeconfig.cache
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/ref/CalculatorApp.dll
