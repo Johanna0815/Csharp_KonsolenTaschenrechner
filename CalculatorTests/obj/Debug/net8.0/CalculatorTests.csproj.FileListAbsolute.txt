@@ -102,3 +102,4 @@
 /home/johanna/Demo_Taschenrechner_C#/CalculatorTests/obj/Debug/net8.0/CalculatorTests.pdb
 /home/johanna/Demo_Taschenrechner_C#/CalculatorTests/obj/Debug/net8.0/CalculatorTests.genruntimeconfig.cache
 /home/johanna/Demo_Taschenrechner_C#/CalculatorTests/obj/Debug/net8.0/ref/CalculatorTests.dll
+/home/johanna/Demo_Taschenrechner_C#/CalculatorTests/obj/Debug/net8.0/CalculatorTests.sourcelink.json

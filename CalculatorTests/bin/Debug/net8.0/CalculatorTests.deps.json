@@ -10,6 +10,7 @@
         "dependencies": {
           "CalculatorApp": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.8.0",
+          "StyleCop.Analyzers": "1.2.0-beta.354",
           "coverlet.collector": "6.0.0",
           "xunit": "2.5.3",
           "xunit.runner.visualstudio": "2.5.3"
@@ -401,6 +402,12 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "StyleCop.Analyzers/1.2.0-beta.354": {
+        "dependencies": {
+          "StyleCop.Analyzers.Unstable": "1.2.0.354"
+        }
+      },
+      "StyleCop.Analyzers.Unstable/1.2.0.354": {},
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1225,6 +1232,20 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "StyleCop.Analyzers/1.2.0-beta.354": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oDSJNxnEvIzAQTkpkc/FnJP4dQ7TV6fHMsI+2ckU5DOaMiwiEfh1fawMsSqz2bCoNwbTt9lS6MgYvyVKujNJoA==",
+      "path": "stylecop.analyzers/1.2.0-beta.354",
+      "hashPath": "stylecop.analyzers.1.2.0-beta.354.nupkg.sha512"
+    },
+    "StyleCop.Analyzers.Unstable/1.2.0.354": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/3RlM31XbJ02gaWh7dVumWOyMvGHswb/zygGJXd9oEJMRyyYc/HFJlAC5gBPxvi9cB4CMvIyyUTmZz5VLKwTvg==",
+      "path": "stylecop.analyzers.unstable/1.2.0.354",
+      "hashPath": "stylecop.analyzers.unstable.1.2.0.354.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
