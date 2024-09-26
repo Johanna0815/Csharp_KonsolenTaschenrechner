@@ -5,6 +5,7 @@ stages:
   - test
   - deploy
 
+# Build-Job
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
@@ -12,66 +13,27 @@ build-job:       # This job runs in the build stage, which runs first.
     - dotnet restore
     - echo "Compiling the code..."
     - dotnet build --no-restore
-    - 'dotnet build --no-restore'
     - echo "Compile complete."
 
-
-# unit-test-job:   # This job runs in the test stage.
-#   stage: test    # It only starts when the job in the build stage completes successfully.
-#   script:
-#     - echo "Running 7 unit tests... This will take about 60 seconds."
-#     - cd CalculatorTests  
-
-#     - dotnet test --no-build --logger "trx;LogFileName=test_results.trx"
-#   artifacts:
-#     when: always
-#     paths:
-#       - CalculatorTests/TestResults/   #pfad testen. 
-#     reports:
-#       junit: CalculatorTests/TestResults/*.trx
-
-# unit-test-job:
-#   stage: test
-#   script:
-#     - echo "Running 7 unit tests... This will take about 60 seconds."
-#     - cd CalculatorTests
-#     - dotnet build  # Baut die Tests, um sicherzustellen, dass sie kompiliert sind
-#     - mkdir -p TestResults  # TestResults Verzeichnis sicherstellen
-#     - dotnet test --no-build --logger "trx;LogFileName=TestResults/test_results.trx"
-#   artifacts:
-#     when: always
-#     paths:
-#       - CalculatorTests/TestResults/   # Sicherstellen, dass das Test-Ergebnis-Verzeichnis vorhanden ist
-#     reports:
-#       junit: CalculatorTests/TestResults/*.trx
-
-
-
-
-
+# Unit-Test-Job
 unit-test-job:
   stage: test
   script:
     - echo "Running 7 unit tests... This will take about 60 seconds."
     - cd CalculatorTests
-    - dotnet build  # Baue die Tests, um sicherzustellen, dass sie kompiliert sind
-    - mkdir -p TestResults  # Erstelle das TestResults-Verzeichnis, falls es nicht existiert
-    - dotnet test --no-build --logger "trx;LogFileName=TestResults/test_results.trx"  
-   #    - ls -R CalculatorTests/bin/Debug/net8.0
+    - dotnet build  
+    - mkdir -p CalculatorTests/TestResults  # Erstellt das TestResults-Verzeichnis, falls es nicht existiert
+    - dotnet test --no-build --logger "trx;LogFileName=CalculatorTests/TestResults/test_results.trx"
     - echo "Listing contents of CalculatorTests/bin/Debug/net8.0"
     - ls -la CalculatorTests/bin/Debug/net8.0
   artifacts:
     when: always
     paths:
-      - CalculatorTests/TestResults/   # Das Verzeichnis für die Test-Ergebnisse
+      - CalculatorTests/bin/Debug/net8.0/TestResults/  # Das Verzeichnis für die Test-Ergebnisse
     reports:
-      junit: CalculatorTests/TestResults/*.trx
+      junit: CalculatorTests/bin/Debug/net8.0/TestResults/*.trx  # Lade die .trx Datei hoch
 
-
- 
-
-
-
+# Linting-Job
 lint-job:    # It can run at the same time as unit-test-job (in parallel).
   stage: test   # This job also runs in the test stage.
   script:
@@ -85,10 +47,8 @@ lint-job:    # It can run at the same time as unit-test-job (in parallel).
 
 
 
-
+# Deployment-Job
 deploy-job:
   stage: deploy
   script:
     - echo "Deploying application..."
-
-
