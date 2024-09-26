@@ -6,7 +6,7 @@ stages:
   - deploy
 
 # Build-Job
-build-job:       # This job runs in the build stage, which runs first.
+build-job:
   stage: build
   script:
     - cd CalculatorApp
@@ -22,20 +22,20 @@ unit-test-job:
     - echo "Running 7 unit tests... This will take about 60 seconds."
     - cd CalculatorTests
     - dotnet build  
-    - mkdir -p CalculatorTests/TestResults  # Erstellt das TestResults-Verzeichnis, falls es nicht existiert
-    - dotnet test --no-build --logger "trx;LogFileName=CalculatorTests/TestResults/test_results.trx"
-    - echo "Listing contents of CalculatorTests/bin/Debug/net8.0"
-    - ls -la CalculatorTests/bin/Debug/net8.0
+    - mkdir -p TestResults  # Sicherstellen, dass das TestResults-Verzeichnis existiert
+    - dotnet test --no-build --logger "trx;LogFileName=TestResults/test_results.trx"
+    - echo "Listing contents of TestResults"
+    - ls -la TestResults
   artifacts:
     when: always
     paths:
-      - CalculatorTests/bin/Debug/net8.0/TestResults/  # Das Verzeichnis für die Test-Ergebnisse
+      - TestResults/  # Lade das TestResults-Verzeichnis hoch
     reports:
-      junit: CalculatorTests/bin/Debug/net8.0/TestResults/*.trx  # Lade die .trx Datei hoch
+      junit: TestResults/test_results.trx  # Lade die .trx Datei als Testbericht hoch
 
 # Linting-Job
-lint-job:    # It can run at the same time as unit-test-job (in parallel).
-  stage: test   # This job also runs in the test stage.
+lint-job:
+  stage: test
   script:
     - echo "Linting code... This will take about 10 seconds."
     - dotnet build /p:StyleCopTreatErrorsAsWarnings=false
@@ -43,9 +43,6 @@ lint-job:    # It can run at the same time as unit-test-job (in parallel).
   allow_failure: false
   only:
     - main
-
-
-
 
 # Deployment-Job
 deploy-job:
