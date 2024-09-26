@@ -22,15 +22,16 @@ unit-test-job:
     - echo "Running 7 unit tests... This will take about 60 seconds."
     - cd CalculatorTests
     - dotnet build  
-    - dotnet test --no-build --logger "trx;LogFileName=test_results.trx"
-    - echo "Listing contents of CalculatorTests"
-    - ls -la
+    - mkdir -p TestResults  # Stelle sicher, dass das TestResults-Verzeichnis existiert
+    - dotnet test --no-build --logger "trx;LogFileName=TestResults/test_results.xml"  # Speichere die Testergebnisse als XML-Datei
+    - echo "Listing contents of TestResults"
+    - ls -la TestResults
   artifacts:
     when: always
     paths:
-      - CalculatorTests/test_results.trx  # Direkte Angabe der Datei im Hauptverzeichnis
+      - CalculatorTests/TestResults/ 
     reports:
-     junit: test_results.trx  # Lade die .trx Datei hoch
+      junit: test_results.xml  # Verwende die .xml-Datei für den JUnit-Bericht
 
 
 
