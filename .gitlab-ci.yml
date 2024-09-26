@@ -15,23 +15,26 @@ build-job:
     - dotnet build --no-restore
     - echo "Compile complete."
 
-# Unit-Test-Job
 unit-test-job:
   stage: test
   script:
     - echo "Running 7 unit tests... This will take about 60 seconds."
     - cd CalculatorTests
     - dotnet build  
-    - mkdir -p TestResults  # Sicherstellen, dass das TestResults-Verzeichnis existiert
-    - dotnet test --no-build --logger "trx;LogFileName=TestResults/test_results.trx"
+    - mkdir -p TestResults  # Erstelle das TestResults-Verzeichnis
+    - dotnet test --no-build --logger "trx;LogFileName=TestResults/test_results.trx"  
     - echo "Listing contents of TestResults"
     - ls -la TestResults
   artifacts:
     when: always
     paths:
-      - TestResults/  # Lade das TestResults-Verzeichnis hoch
+      - CalculatorTests/TestResults/  # Lade die Test-Ergebnisse hoch
     reports:
-      junit: TestResults/test_results.trx  # Lade die .trx Datei als Testbericht hoch
+      junit: CalculatorTests/TestResults/*.trx  # Lade die .trx Datei hoch
+
+
+
+
 
 # Linting-Job
 lint-job:
