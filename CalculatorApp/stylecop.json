@@ -1,0 +1,28 @@
+{
+    "settings": {
+      "documentationRules": {
+        "documentInterfaces": "false",
+        "documentExposedElements": "false",
+        "documentPrivateElements": "false",
+        "documentInternalElements": "false"
+      },
+      "layoutRules": {
+        "newLinesForBracesInMethods": "false",
+        "newLinesForBracesInTypes": "false"
+      },
+      "orderingRules": {
+        "elementOrder": [
+          "constant",
+          "field",
+          "constructor",
+          "destructor",
+          "method",
+          "property",
+          "event",
+          "indexer",
+          "operator"
+        ]
+      }
+    }
+  }
+  
