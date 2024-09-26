@@ -3,7 +3,6 @@ image: mcr.microsoft.com/dotnet/sdk:8.0
 stages:
   - build
   - test
-  - lint
   - deploy
 
 build-job:       # This job runs in the build stage, which runs first.
@@ -24,12 +23,8 @@ unit-test-job:   # This job runs in the test stage.
     - dotnet test
     - 'dotnet test --no-build'
 
-
- # testing first seperat # 
-# This job also runs in the test stage.
-# stage: test    # It can run at the same time as unit-test-job (in parallel).
-lint-job:
-  stage: lint
+lint-job:    # It can run at the same time as unit-test-job (in parallel).
+  stage: test   # This job also runs in the test stage.
   script:
     - echo "Linting code... This will take about 10 seconds."
     - dotnet build /p:StyleCopTreatErrorsAsWarnings=false
@@ -37,6 +32,10 @@ lint-job:
   allow_failure: false
   only:
     - main
+
+
+
+
 
 deploy-job:
   stage: deploy
