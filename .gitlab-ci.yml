@@ -30,7 +30,7 @@ unit-test-job:
     paths:
       - CalculatorTests/test_results.trx  # Direkte Angabe der Datei im Hauptverzeichnis
     reports:
-     junit: CalculatorTests/test_results.trx  # Lade die .trx Datei hoch
+     junit: test_results.trx  # Lade die .trx Datei hoch
 
 
 
