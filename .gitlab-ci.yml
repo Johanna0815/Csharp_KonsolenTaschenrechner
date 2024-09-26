@@ -31,8 +31,7 @@ unit-test-job:
     paths:
       - CalculatorTests/TestResults/ 
     reports:
-      junit: test_results.xml  # Verwende die .xml-Datei für den JUnit-Bericht
-
+      junit: CalculatorTests/TestResults/test_results.xml
 
 
 
