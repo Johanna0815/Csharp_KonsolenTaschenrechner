@@ -3,6 +3,7 @@ image: mcr.microsoft.com/dotnet/sdk:8.0
 stages:
   - build
   - test
+  - lint
   - deploy
 
 build-job:       # This job runs in the build stage, which runs first.
@@ -24,16 +25,22 @@ unit-test-job:   # This job runs in the test stage.
     - 'dotnet test --no-build'
 
 
-
-lint-test-job:   # This job also runs in the test stage.
-  stage: test    # It can run at the same time as unit-test-job (in parallel).
+ # testing first seperat # 
+# This job also runs in the test stage.
+# stage: test    # It can run at the same time as unit-test-job (in parallel).
+lint-job:
+  stage: lint
   script:
     - echo "Linting code... This will take about 10 seconds."
+    - dotnet build /p:StyleCopTreatErrorsAsWarnings=false
     - echo "No lint issues found."
+  allow_failure: false
+  only:
+    - main
 
-deploy-job:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  environment: production
+deploy-job:
+  stage: deploy
   script:
     - echo "Deploying application..."
-    - echo "Application successfully deployed."
+
+
