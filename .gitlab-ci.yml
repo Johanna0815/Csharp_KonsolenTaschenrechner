@@ -21,13 +21,21 @@ unit-test-job:   # This job runs in the test stage.
     - echo "Running 7 unit tests... This will take about 60 seconds."
     - cd CalculatorTests  
     - dotnet test
-    - dotnet test --logger "trx;LogFileName=test_results.xml"
-    - 'dotnet test --no-build'   
+   # - dotnet test --logger "trx;LogFileName=test_results.xml"
+    - dotnet test --logger "trx;LogFileName=test_results.trx"
+    # - 'dotnet test --no-build'   
   artifacts:
-    reports:
-      junit: test_results.xml  # testen, warum es die tests nicht anzeigt im dashboard. obwohl sie durchgelaufen. 
+   when: always
+   reports:
+     junit: test_results.trx
+  #    junit: test_results.xml  # testen, warum es die tests nicht anzeigt im dashboard. obwohl sie durchgelaufen. 
 
- 
+
+      
+
+
+
+
 
 
 lint-job:    # It can run at the same time as unit-test-job (in parallel).
