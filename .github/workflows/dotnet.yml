@@ -1,4 +1,4 @@
-name: .NET CI #3rd
+name: .NET CI
 
 on:
   push:
@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Aktualisierte Version
 
     - name: Set up .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3  # Aktualisierte Version
       with:
         dotnet-version: '8.0.x'
 
@@ -28,28 +28,28 @@ jobs:
       run: dotnet build ./CalculatorApp/CalculatorApp.csproj --no-restore --configuration Release
 
   test:
-    runs-on: ubuntu-latest  #selbe container
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Aktualisierte Version
 
     - name: Set up .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3  # Aktualisierte Version
       with:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore ./CalculatorTests/CalculatorTests.csproj  # Hier wird das Restore durchgeführt
+      run: dotnet restore ./CalculatorTests/CalculatorTests.csproj
 
     - name: Build solution and tests
       run: dotnet build ./CalculatorTests/CalculatorTests.csproj --no-restore
 
-    - name: Run tests
+    - name: Run tests # pfad überprüfen. 
       run: dotnet test ./CalculatorTests/CalculatorTests.csproj --no-build --logger "trx;LogFileName=TestResults/test_results.xml"
 
     - name: Upload test results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3  # Aktualisierte Version
       with:
         name: test-results
         path: ./CalculatorTests/TestResults/test_results.xml
@@ -59,13 +59,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Aktualisierte Version
 
     - name: Set up .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3  # Aktualisierte Version
       with:
         dotnet-version: '8.0.x'
 
     - name: Lint code with StyleCop
       run: dotnet build ./CalculatorApp/CalculatorApp.csproj /p:StyleCopTreatErrorsAsWarnings=false
-
