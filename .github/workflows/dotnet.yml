@@ -1,4 +1,4 @@
-name: .NET CI
+name: .NET CI #second
 
 on:
   push:
@@ -42,11 +42,11 @@ jobs:
     - name: Build solution and tests
       run: dotnet build ./CalculatorTests/CalculatorTests.csproj --no-restore
 
-    - name: Run tests
+    - name: Run tests #test failed. 
       run: dotnet test ./CalculatorTests/CalculatorTests.csproj --no-build --logger "trx;LogFileName=TestResults/test_results.xml"
 
     - name: Upload test results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3  # Aktualisiere auf v3
       with:
         name: test-results
         path: ./CalculatorTests/TestResults/test_results.xml
