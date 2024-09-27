@@ -12,3 +12,4 @@
 /home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.pdb
 /home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.genruntimeconfig.cache
 /home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/ref/CalculatorApp.dll
+/home/johanna/Demo_Taschenrechner_C#/CalculatorApp/obj/Debug/net8.0/CalculatorApp.sourcelink.json

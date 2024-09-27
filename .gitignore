@@ -37,3 +37,29 @@ artifacts/
 
 # Ignoriere die Visual Studio 2017/2019 Verzeichnisstruktur
 .vs/
+
+# ~~~~~~~~~~~~~~~~~~~~~~
+# Build artifacts
+bin/
+obj/
+TestResults/
+
+# Visual Studio Code specific
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+
+# DotNet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# .NET Core
+*.dll
+*.exe
+*.log
+*.pdb
+*.cache
+*.nuget

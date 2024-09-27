@@ -1,0 +1,67 @@
+name: .NET CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.0.x'  
+
+    - name: Install dependencies
+      run: dotnet restore ./CalculatorApp/CalculatorApp.csproj
+
+    - name: Build the solution
+      run: dotnet build ./CalculatorApp/CalculatorApp.csproj --no-restore --configuration Release
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Build solution and tests
+      run: dotnet build ./CalculatorTests/CalculatorTests.csproj --no-restore
+
+    - name: Run tests
+      run: dotnet test ./CalculatorTests/CalculatorTests.csproj --no-build --logger "trx;LogFileName=TestResults/test_results.xml"
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: ./CalculatorTests/TestResults/test_results.xml
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Lint code with StyleCop
+      run: dotnet build ./CalculatorApp/CalculatorApp.csproj /p:StyleCopTreatErrorsAsWarnings=false
