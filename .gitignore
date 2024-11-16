@@ -1,65 +1,48 @@
-# Ignoriere Build-Ergebnisse
+# Build-Ergebnisse
 [Dd]ebug/
 [Rr]elease/
-x64/
-x86/
 [Bb]in/
 [Oo]bj/
-[Ll]ogs/
+artifacts/
+TestResults/
 
-# Ignoriere NuGet-Pakete
+# NuGet-Pakete
 packages/
+*.nuget
 
-# Ignoriere VS Code-Einstellungen
+# Visual Studio Code spezifische Dateien
 .vscode/
 
-# Ignoriere Benutzereinstellungen von Visual Studio
+# Visual Studio Benutzer-spezifische Dateien
 *.user
 *.suo
 *.userosscache
 
-# Ignoriere ReSharper-Dateien
+# ReSharper-Dateien
 _ReSharper*/
 *.[Rr]e[Ss]harper
 
-# Ignoriere alle .NET Core und .NET Standard temporäre Dateien und Build-Dateien
-**/project.lock.json
+# .NET Core und .NET Standard temporäre Dateien und Build-Dateien
+project.lock.json
 project.fragment.lock.json
-artifacts/
 
-# Ignoriere Visual Studio temporäre Dateien, Build-Ergebnisse und
-# Dateien, die durch andere Visual Studio-Add-Ins erstellt wurden
+# Visual Studio temporäre Dateien, Build-Ergebnisse und Logs
 **/[Tt]est[Rr]esult*/
 **/[Bb]uild[Ll]og.*
 
-# Ignoriere die macOS-Systemdateien
+# macOS-Systemdateien
 .DS_Store
 
-# Ignoriere die Visual Studio 2017/2019 Verzeichnisstruktur
+# Visual Studio Verzeichnisstruktur
 .vs/
 
-# ~~~~~~~~~~~~~~~~~~~~~~
-# Build artifacts
-bin/
-obj/
-TestResults/
-
-# Visual Studio Code specific
-.vscode/
-
-# User-specific files
-*.user
-*.suo
-
-# DotNet specific
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-# .NET Core
+# Allgemeine Build-Artefakte (DLLs, EXEs, Logs, etc.)
 *.dll
 *.exe
 *.log
 *.pdb
 *.cache
-*.nuget
+
+# Ignore spezifische Architektur-Ordner
+x64/
+x86/

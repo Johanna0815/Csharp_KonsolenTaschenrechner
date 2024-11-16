@@ -3,6 +3,7 @@ image: mcr.microsoft.com/dotnet/sdk:8.0
 stages:
   - build
   - test
+  - lint
   - deploy
 
 # Build-Job
@@ -37,7 +38,7 @@ unit-test-job:
 
 # Linting-Job
 lint-job:
-  stage: test
+  stage: lint
   script:
     - echo "Linting code... This will take about 10 seconds."
     - dotnet build /p:StyleCopTreatErrorsAsWarnings=false
